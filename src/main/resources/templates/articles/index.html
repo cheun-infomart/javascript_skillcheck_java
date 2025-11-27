@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>JavaScriptSkillcheck</title>
-  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScriptSkillcheck</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <script th:src="@{/js/post.js}"></script>
+    <script th:src="@{/js/count.js}"></script>
+  </head>
 
-<body>
+  <body>
+    <div class="header"></div>
 
-  <div class="header">
-  </div>
-  
-  <div class="contents" id="contents_area">
-    <div th:each="article : ${articleList}">
-      <div th:replace="~{articles/article :: articleFragment}"></div>
+    <div class="contents" id="contents_area">
+      <div th:each="article : ${articleList}">
+        <div th:replace="~{articles/article :: articleFragment}"></div>
+      </div>
     </div>
-  </div>
-  
-  <div class="form-area">
-    <div class="form">
-      <form th:action="@{/articles}" th:object="${articleForm}" method="post" id="new_article">
-        <input type="text" th:field="*{text}" class="article_form" id="article_text"/>
-        <div id="char_num">
-          0文字
-        </div>
-        <input type="submit" value="POST" id="submit_btn"/>
-      </form>
-    </div>
-  </div>
 
-</body>
+    <div class="form-area">
+      <div class="form">
+        <form th:action="@{/articles}" th:object="${articleForm}" method="post" id="new_article">
+          <input type="text" th:field="*{text}" class="article_form" id="article_text" />
+          <div id="char_num">0文字</div>
+          <input type="submit" value="POST" id="submit_btn" />
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
